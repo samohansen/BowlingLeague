@@ -3,6 +3,10 @@
 }
 @model IndexViewModel
 
+@{
+    ViewData["Team"] = Model.TeamName;
+}
+
 <div class="text-center">
     <h1 class="display-4">@Model.TeamName</h1>
 

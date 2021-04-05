@@ -3,12 +3,25 @@
 <a asp-action="Index" asp-controller="Home" asp-route-teamid="">All Teams</a>
 <br />
 
+
 @foreach (var x in Model)
 {
+    @if (x.TeamName == ViewData["Team"].ToString())
+    {
+        <b>
+            <a asp-action="Index" asp-controller="Home"
+               asp-route-teamid="@x.TeamId"
+               asp-route-teamname="@x.TeamName">@x.TeamName</a>
+            <br />
+        </b>
+    }
+    else
+    {
+        <a asp-action="Index" asp-controller="Home"
+           asp-route-teamid="@x.TeamId"
+           asp-route-teamname="@x.TeamName">@x.TeamName</a>
+        <br />
 
-    <a asp-action="Index" asp-controller="Home"
-        asp-route-teamid="@x.TeamId"
-        asp-route-teamname="@x.TeamName">@x.TeamName</a>
-    <br />
+    }
 
 }
